@@ -1,0 +1,24 @@
+<CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Users" enabled="true">
+  <stringProp name="filename">users.csv</stringProp>
+  <stringProp name="variableNames">username,password</stringProp>
+  <stringProp name="delimiter">,</stringProp>
+  <boolProp name="recycle">true</boolProp>
+  <boolProp name="stopThread">false</boolProp>
+  <stringProp name="shareMode">all</stringProp>
+</CSVDataSet>
+
+<HTTPSamplerProxy testname="Login">
+  <stringProp name="HTTPSampler.domain">testsite.com</stringProp>
+  <stringProp name="HTTPSampler.path">/login</stringProp>
+  <stringProp name="HTTPSampler.method">POST</stringProp>
+  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+    <collectionProp name="Arguments.arguments">
+      <elementProp name="username" elementType="HTTPArgument">
+        <stringProp name="Argument.value">${username}</stringProp>
+      </elementProp>
+      <elementProp name="password" elementType="HTTPArgument">
+        <stringProp name="Argument.value">${password}</stringProp>
+      </elementProp>
+    </collectionProp>
+  </elementProp>
+</HTTPSamplerProxy>
